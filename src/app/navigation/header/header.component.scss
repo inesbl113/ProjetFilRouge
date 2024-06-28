@@ -1,0 +1,60 @@
+.main-header {
+  background-color: #9AC8EB; /* Couleur de fond */
+  color: #F7F6CF; /* Couleur du texte */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.main-header h1 a {
+  color: #F7F6CF; /* Couleur du texte des liens */
+  text-decoration: none;
+}
+
+.create-button {
+  padding: 10px 40px; /* Ajustement de la largeur du bouton */
+  background-color: #5784BA; /* Couleur de fond */
+  color: #F7F6CF; /* Couleur du texte */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+}
+
+.create-button:hover {
+  background-color:#B6D8F2; /* Couleur de fond au survol */
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links li a {
+  color: #F7F6CF; /* Couleur du texte */
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: #B6D8F2; /* Couleur de fond au survol */
+  border-radius: 5px;
+}

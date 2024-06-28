@@ -1,0 +1,30 @@
+.project-wrapper {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.project-wrapper .card {
+  background-color: #5784BA; /* Couleur de fond */
+  color:  #F7F6CF; /* Couleur du texte */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-wrapper .card:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+.project-wrapper .card-body {
+  padding: 20px;
+}
+
+.project-wrapper .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-wrapper .card-text {
+  color: #F7F6CF; /* Couleur du texte du paragraphe */
+}

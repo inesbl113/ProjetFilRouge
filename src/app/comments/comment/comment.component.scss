@@ -1,0 +1,41 @@
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column; /* Disposition en colonne pour les éléments */
+}
+
+.comment-input {
+  margin-bottom: 10px; /* Espacement en bas du textarea */
+}
+
+.comment-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  resize: vertical; /* Autorise uniquement le redimensionnement vertical */
+}
+
+.button-container {
+  text-align: left; /* Aligner le bouton à droite */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-primary:focus {
+  outline: none;
+}

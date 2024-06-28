@@ -1,0 +1,42 @@
+<div class="card-container">
+  <div class="d-flex justify-content-between">
+    <h5 class="card-title">{{ title }}</h5>
+    <small class="text-muted">Due: 2022-12-31</small>
+  </div>
+  <p class="card-text">{{ description }}</p>
+  
+  <div class="d-flex align-items-center mb-2">
+    <i class="fas fa-comment" style="font-size: 10px;"></i>
+    <span class="ml-1" (click)="showCommentsList()">commentaires</span>
+  </div>
+
+  <div *ngIf="isVisible" class="comment-section">
+    <ng-container *ngFor="let comment of comments">
+      <p>{{ comment.text }}</p>
+    </ng-container>
+  </div>
+
+  <div class="button-container">
+    <button class="btn btn-primary" (click)="toggleComments()">
+      Ajouter un commentaire
+    </button>
+  </div>
+
+  <form [formGroup]="commentForm" (ngSubmit)="submitComment()" *ngIf="showComments" class="comment-form">
+    <div class="input-container">
+      <div class="input-group">
+        <input
+          type="text"
+          placeholder="Ajouter un commentaire"
+          class="form-control"
+          formControlName="Text"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

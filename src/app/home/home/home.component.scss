@@ -1,0 +1,62 @@
+/* Container for sidebar and main content */
+.container {
+  display: flex; /* Enables flexbox layout */
+  height: 100vh; 
+  width: 100vw; /* Full viewport width */
+  margin: 0; /* Removes left margin */
+  padding: 0;/* Full viewport height */
+
+}
+
+.sidebar {
+  position: fixed;
+  top:50; /* Anchors the sidebar to the viewport */
+  left: 0; /* Adjust to 'right: 0;' for a right-aligned sidebar */
+  width: 20vw;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Adds a subtle shadow to the right */
+  z-index: 100; /* Ensures it's above most other content */
+  overflow-y: auto; /* Adds scroll for overflow content */
+}
+
+.sidebar ul {
+  list-style-type: none; /* Removes bullet points */
+  margin-left : 0;
+  padding-left: 0%;
+
+}
+.main-content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 20px;
+  gap: 20px;
+  width: calc(100% - 20vw); /* Adjust width to account for sidebar */
+  margin-left: 20vw; /* Pushes main content to start after the sidebar */
+}
+
+.add-list {
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  padding: 10px 25px; /* Adjust padding as needed */
+  margin-top: 50px;;
+ /* Space between this div and the next app-list */
+  border: 2px solid #007bff; /* Example border color, adjust as needed */
+  border-radius: 4px; /* Gives the rectangular div rounded corners */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+  background-color: #f8f9fa; /* Light background, adjust as needed */
+  color: #007bff; /* Text color, adjust as needed */
+  font-weight: bold;
+  width: 500px;
+  height: 250px; /* Adjust height as needed */
+  background: #d7d3dd; 
+  flex-direction: column;/* Background color */
+}
+
+.add-list p {
+  font-size: 1.5em; /* Adjust font size as needed */
+  white-space: nowrap; 
+
+}
