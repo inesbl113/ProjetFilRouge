@@ -1,56 +1,70 @@
-/* Couleur principale: #F7F6CF */
-:host {
-  display: block;
-  background-color: #F7F6CF;
-  font-family: Arial, sans-serif;
+.list-container {
+  background-color: #ffffff;
+  border: 1px solid #335F8A;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
   padding: 20px;
+  max-width: 500px;
 }
 
-.list-container {
-  background-color: #ffffff; /* Fond blanc pour un bon contraste */
-  border: 1px solid #B6D8F2; /* Bordure avec la couleur secondaire */
-  border-radius: 8px;
-  padding: 15px;
-  margin: 20px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.list-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .list-header {
-  border-bottom: 1px solid #B6D8F2; /* Accentuation */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #335F8A;
+  padding-bottom: 10px;
   margin-bottom: 10px;
-  padding-bottom: 5px;
 }
 
 .list-title {
-  color: #333;
-  font-size: 20px;
-  margin: 0;
+  color: #2F4558;
+  font-size: 24px;
 }
+
+.icon-group {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-icon, .delete-icon {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.edit-icon:hover, .delete-icon:hover {
+  color: var(--secondary-color);
+}
+
 
 .list-items {
   list-style-type: none;
   padding: 0;
-  margin: 0;
 }
 
 .list-item {
-  background-color: #F4CFDF; /* Couleur tertiaire */
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .button-wrapper {
-  text-align: right;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .add-item-btn {
-  background-color: #B6D8F2; /* Couleur secondaire */
+  background-color: var(--primary-color);
+  color: #ffffff;
   border: none;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
 }
+
+.add-item-btn:hover {
+  background-color: var(--secondary-color);
+}
+

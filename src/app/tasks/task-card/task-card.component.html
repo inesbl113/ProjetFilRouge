@@ -1,42 +1,61 @@
-<div class="card-container">
-  <div class="d-flex justify-content-between">
-    <h5 class="card-title">{{ title }}</h5>
-    <small class="text-muted">Due: 2022-12-31</small>
-  </div>
-  <p class="card-text">{{ description }}</p>
-  
-  <div class="d-flex align-items-center mb-2">
-    <i class="fas fa-comment" style="font-size: 10px;"></i>
-    <span class="ml-1" (click)="showCommentsList()">commentaires</span>
-  </div>
-
-  <div *ngIf="isVisible" class="comment-section">
-    <ng-container *ngFor="let comment of comments">
-      <p>{{ comment.text }}</p>
-    </ng-container>
-  </div>
-
-  <div class="button-container">
-    <button class="btn btn-primary" (click)="toggleComments()">
-      Ajouter un commentaire
-    </button>
-  </div>
-
-  <form [formGroup]="commentForm" (ngSubmit)="submitComment()" *ngIf="showComments" class="comment-form">
-    <div class="input-container">
-      <div class="input-group">
-        <input
-          type="text"
-          placeholder="Ajouter un commentaire"
-          class="form-control"
-          formControlName="Text"
-        />
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit">
-            <i class="fas fa-paper-plane"></i>
+<div class="task-wrapper">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">{{ title }}</h5>
+      <div class="icon-group">
+        <mat-icon class="edit-delete-icons" (click)="editTask(taskId)">edit</mat-icon>
+        <mat-icon class="edit-delete-icons" (click)="deleteTask(taskId)">delete_outline</mat-icon>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="body-header">
+        <div>
+          <span>Before :</span><small class="text-muted due-date">{{ dueDate | frenchDate }}</small>
+        </div>
+ 
+        <p class="card-categorie" [ngStyle]="{'background-color': getBackgroundColor(taskCategorie)}">{{ taskCategorie }}</p>
+      </div>
+      <p class="card-text">{{ description }}</p>
+      <div class="comment-section-header" (click)="showCommentsList()">
+        <mat-icon>comment</mat-icon>
+        <span class="ml-1">commentaires</span>
+      </div>
+    </div>
+    <form [formGroup]="commentForm" (ngSubmit)="submitComment()" *ngIf="showComments">
+      <div class="input-container">
+        <div class="input-group">
+          <input type="text" placeholder="Add comment" class="form-control" formControlName="text" />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary submit-button" type="submit">
+              <mat-icon *ngIf="!editCommentMode">send</mat-icon>
+              <mat-icon *ngIf="editCommentMode">edit</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="card-footer">
+      <div *ngIf="isVisible">
+        <div class="button-container">
+          <button *ngIf="showAddCommentButton" class="btn btn-outline-primary add-comment-button" (click)="toggleComments(); showAddCommentButton = false;">
+            Add Comment
           </button>
         </div>
       </div>
+      <div *ngIf="isVisible" class="comment-wrapper">
+        <ng-container *ngFor="let comment of comments">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div *ngIf="editingCommentId === comment.id; else displayComment">
+              <input name="editComment" class="form-control" [formControl]="editCommentForms[comment.id]" (blur)="editComment(comment.id, editCommentForms[comment.id].value)" />
+            </div>
+            <ng-template #displayComment>
+              <app-comment [commentText]="comment.text" [commentAuthor]="comment.author"></app-comment>
+            </ng-template>
+            <mat-icon class="icon-button" (click)="startEditing(comment.id)">edit</mat-icon>
+            <mat-icon class="icon-button" (click)="deleteComment(comment.id)">delete_outline</mat-icon>
+          </div>
+        </ng-container>
+      </div>
     </div>
-  </form>
+  </div>
 </div>
